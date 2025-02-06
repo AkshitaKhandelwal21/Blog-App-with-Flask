@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <img src="{{image}}" alt="image" style="width: 20%; height: 20%;">
+        </div>
+        <div>
+            <h1>{{ current_user.username }}</h1>
+            <h4>{{ current_user.email }}</h4>
+        </div>
+        <div>
+            <form method="POST" action="" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <legend>Account Information</legend>
+                <div>
+                    {{ form.username.label() }}
+                    {{ form.username }}
+                </div>
+                <div>
+                    {{ form.email.label() }}
+                    {{ form.email }}
+                </div>
+                <div>
+                    {{ form.picture.label() }}
+                    {{ form.picture }}
+                </div>
+                
+                <div>{{form.submit}}</div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

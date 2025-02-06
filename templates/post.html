@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post {{post.id}}</title>
+</head>
+
+<body>
+    <h1>
+        {{post.title}}
+    </h1>
+    <p> 
+        {{post.content}}
+    </p>
+
+    <form method="POST" action="{{ url_for('deletePost', post_id=post.id) }}">
+        {{ form.csrf_token() }}
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete</button>
+    </form>
+</body>
+
+</html>

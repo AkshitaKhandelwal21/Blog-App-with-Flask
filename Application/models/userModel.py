@@ -6,7 +6,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), nullable=False)
     email = db.Column(db.String(50), nullable=False)
-    phone = db.Column(db.Integer, nullable=False)
+    phone = db.Column(db.String(10), nullable=False)
     image_file = db.Column(db.String(25), nullable=False, default='default.jpg')
     password = db.Column(db.String(40), nullable=False)
     posts = relationship('Post', backref='author', lazy=True)

@@ -22,7 +22,7 @@ def newBlog():
 @app.route('/blogs')
 def getBlog():
     page = request.args.get('page', 1, type=int)
-    posts = Post.query.paginate(page=page, per_page=2)
+    posts = Post.query.paginate(page=page, per_page=10)
     return render_template("blog.html", posts=posts)
 
 
@@ -37,7 +37,7 @@ def onePost(post_id):
 def userPost(username):
     page = request.args.get('page', 1, type=int)
     user = User.query.filter_by(username=username).first()
-    posts = Post.query.filter_by(author=user).paginate(page=page, per_page=2)
+    posts = Post.query.filter_by(author=user).paginate(page=page, per_page=10)
     return render_template('user_post.html', posts=posts)
 
 

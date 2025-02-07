@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+<body>
+    {% block content %}
+    <div>
+        <div style="display: flex; background-color: aliceblue;">
+
+            <div style="width: 50%; height: 70%;">
+                <div style="width: 60%; height: 50%; margin-left: 25%; margin-top: 15%;">
+                    <h1>Discover insights</h1>
+                    <h1>every day</h1>
+                    <p style="text-align: justify;">Find all the insights of the hot topics you're interested in
+                        right now and share your interesting experiences with others.
+                    </p>
+                </div>
+                <div style="margin-left: 25%;">
+                    <button class="btn btn-primary" style="background-color: rgb(179, 179, 226); border:rgb(179, 179, 226);">
+                        <a style="color: black; text-decoration: none;" href="{{url_for('getBlog')}}">Explore</a>
+                    </button>
+                </div>
+            </div>
+
+            <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+                <img style="width: 40%; height: 70%;" src="/static/home.jpg" alt="">
+            </div>
+
+        </div>
+
+        <div>
+            {% for post in posts %}
+            <div style="background-color: rgb(179, 179, 226); padding: 2%; text-align: justify;">
+            <h3>{{post.title}}</h3>
+            <p>{{post.content}}</p>
+            <a href="{{url_for('onePost', post_id=post.id)}}" style="text-decoration: none; color: black;">Read Now</a>
+            </div>
+            <br style="background-color: aliceblue;">
+            {% endfor %}
+        </div>
+
+    </div>
+    {% endblock %}
+</body>

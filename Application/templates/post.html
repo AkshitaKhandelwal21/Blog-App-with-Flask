@@ -3,18 +3,29 @@
 <body>
 
     {% block content %}
-    <h1>
-        {{post.title}}
-    </h1>
-    <p> 
-        {{post.content}}
-    </p>
-
-    <form method="POST" action="{{ url_for('deleteBlog', post_id=post.id) }}">
-        {{ form.csrf_token() }}
-        <input type="hidden" name="_method" value="DELETE">
-        <button type="submit">Delete</button>
-    </form>
+    <div style="padding: 1%; background-color: aliceblue;">
+        <div style="text-align: center; padding: 2%;">
+            <h2>
+                {{post.title}}
+            </h2>
+            <p style="text-align: justify;">
+                {{post.content}}
+            </p>
+        </div>
+    </div>
+    <br>
+    <div style="display: flex; justify-content: center; gap: 20px;">
+        <a href="{{url_for('updateBlog', post_id=post.id)}}"><button class="btn btn-primary"
+                style="background-color: rgb(179, 179, 226); border: rgb(179, 179, 226); color: black;">
+                Update</button></a>
+        <form method="POST" action="{{ url_for('deleteBlog', post_id=post.id) }}">
+            {{ form.csrf_token() }}
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-primary" style="background-color: rgb(179, 179, 226);
+             border: rgb(179, 179, 226);; color: black;">Delete</button>
+        </form>
+    </div>
+    <br>
 
     {% endblock %}
 </body>

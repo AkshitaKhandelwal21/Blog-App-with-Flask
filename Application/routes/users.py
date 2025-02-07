@@ -1,7 +1,7 @@
 from Application import app, db, bcrypt
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request
 from Application.forms.userForms import *
-from flask_login import logout_user
+from flask_login import logout_user, login_user, current_user
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -37,3 +37,19 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+
+@app.route('/account')
+def account():
+    form = UpdateForm()
+    if request.method == 'GET':
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+        form.phone.data = current_user.phone
+    if form.validate():
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        current_user.phone = form.phone.data
+        return redirect(url_for('account'))
+    
+    return render_template("account.html", form=form)

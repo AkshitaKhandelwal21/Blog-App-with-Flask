@@ -1,39 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-</head>
+{% extends "layout.html" %}
 
 <body>
-    <div>
+
+    {% block content %}
+    <div class="container">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
-            <div>
-                {{ form.username.label() }}
-                {{ form.username }}
+
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">{{ form.username.label() }}</label>
+                {{ form.username(class="form-control", id="exampleInputEmail1") }}
             </div>
-            <div>
-                {{ form.email.label() }}
-                {{ form.email }}
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">{{ form.email.label() }}</label>
+                {{ form.email(class="form-control", id="exampleInputPassword1") }}
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
-            <div>
-                {{ form.phone.label() }}
-                {{ form.phone }}
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">{{ form.phone.label() }}</label>
+                {{ form.phone(class="form-control", id="exampleInputEmail1") }}
             </div>
-            <div>
-                {{ form.password.label() }}
-                {{ form.password }}
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">{{ form.password.label() }}</label>
+                {{ form.password(class="form-control", id="exampleInputEmail1") }}
             </div>
-            <div>
-                {{ form.confirm_password.label() }}
-                {{ form.confirm_password }}
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">{{ form.confirm_password.label() }}</label>
+                {{ form.confirm_password(class="form-control", id="exampleInputEmail1") }}
             </div>
-            <div>{{form.submit}}</div>
+
+            <div>{{form.submit(class="btn btn-primary") }}</div>
         </form>
     </div>
+
+    {% endblock %}
 </body>
 
 </html>

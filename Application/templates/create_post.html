@@ -1,25 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Post </title>
-</head>
+{% extends "layout.html" %}
+
 <body>
-    <div>
+    {% block content %}
+
+    <div class="container">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
-    
-            <div>
-                {{ form.title.label() }}
-                {{ form.title }}
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">{{ form.title.label() }}</label>
+                {{ form.title(class="form-control", id="exampleFormControlInput1") }}
+
             </div>
-            <div>
-                {{ form.content.label() }}
-                {{ form.content }}
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">{{ form.content.label() }}</label>
+                {{ form.content(class="form-control", id="exampleFormControlTextarea1") }}
             </div>
-            <div>{{form.submit}}</div>
+
+            <div>{{form.submit(class="btn btn-primary")}}</div>
         </form>
     </div>
+
+    {% endblock %}
 </body>
+
 </html>

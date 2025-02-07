@@ -30,3 +30,20 @@ class LoginForm(FlaskForm):
             print("Email does not exist")
             raise ValidationError('This email does not exist')
     
+
+class UpdateForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    email = EmailField('Email', validators=[DataRequired()])
+    phone = StringField('Phone', validators=[DataRequired(), Length(min=10, max=10)])
+    submit = SubmitField('Sign up')
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user:
+            print("Email exists")
+            raise ValidationError('This email is already taken')
+        
+    def validate_user(self, username):
+        user = User.query.filter_by(username=username.data).first()
+        if user:
+            raise ValidationError('This username is already taken')

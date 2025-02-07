@@ -8,20 +8,15 @@
 </head>
 
 <body>
-    <nav>
-        {% if current_user.is_authenticated %}
-        <a href="{{ url_for('account') }}">Account</a>
-        {% endif %}
-    </nav>
-    <h1>This is the home page</h1>
+
+    <h1>This is the blog page</h1>
     {% for n in posts.items %}
     <div style="background-color: burlywood;">
-        <a href="{{ url_for('post', post_id=n.id) }}">
-            <h3>{{n.title}}</h3>
-        </a>
+        <h3>{{n.title}}</h3>
         <p>{{n.content}}</p>
     </div>
     {% endfor %}
+
 
     {% for pagenum in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
 
@@ -31,6 +26,8 @@
     ...
     {% endif %}
     {% endfor %}
+
+
 </body>
 
 </html>

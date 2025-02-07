@@ -15,7 +15,7 @@
         {{post.content}}
     </p>
 
-    <form method="POST" action="{{ url_for('deletePost', post_id=post.id) }}">
+    <form method="POST" action="{{ url_for('deleteBlog', post_id=post.id) }}">
         {{ form.csrf_token() }}
         <input type="hidden" name="_method" value="DELETE">
         <button type="submit">Delete</button>

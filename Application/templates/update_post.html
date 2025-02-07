@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Post </title>
+    <title>Update Post</title>
 </head>
 <body>
     <div>
         <form method="POST" action="">
             {{ form.csrf_token }}
-            <input type="hidden" name="_method" value="PATCH">
             <div>
                 {{ form.title.label() }}
                 {{ form.title }}
             </div>
-            <div>
+            <div>   
                 {{ form.content.label() }}
                 {{ form.content }}
             </div>

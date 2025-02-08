@@ -2,8 +2,9 @@
 
 <body>
     {% block content %}
+    <br>
     <div class="container">
-        <form method="POST" action="">
+        <form method="POST" action="" style="background-color: rgb(179, 179, 226); padding: 12px;">
             {{ form.csrf_token }}
             <br>
             <div class="mb-3">
@@ -13,16 +14,17 @@
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">{{ form.content.label() }}</label>
-                {{ form.content(class="form-control", id="exampleFormControlTextarea1") }}
+                {{ form.content(class="form-control", id="exampleFormControlTextarea1", style="height:300px;") }}
             </div>
-            
+
             <div style="display: flex; justify-content: center;"> {{form.submit(class="btn btn-primary",
-                 style="background-color: rgb(179, 179, 226); border: rgb(179, 179, 226); color:black;")}}</div>
+                style="background-color: white; border: azure; color:black;")}}</div>
         </form>
         <br>
+        
+
     </div>
-
-
+    <br>
     {% endblock %}
 </body>
 

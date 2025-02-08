@@ -2,11 +2,12 @@
 
 <body>
     {% block content %}
-
-    <div>
+    <div style="padding: 12px;">
+        <br>
 
         <div class="container">
-            <form method="POST" action="" enctype="multipart/form-data">
+            <form method="POST" action="" enctype="multipart/form-data"
+                style="background-color: rgb(179, 179, 226); padding: 8px;">
                 {{ form.hidden_tag() }}
                 <legend>Account Information</legend>
                 <div class="mb-3">
@@ -22,12 +23,15 @@
                         <label for="exampleInputPassword1" class="form-label">{{ form.phone.label() }}</label>
                         {{ form.phone(class="form-control", id="exampleInputPasswor21") }}
                     </div>
-                    <div>{{form.submit(class="btn btn-primary") }}</div>
+                    <div style="display: flex; justify-content: center;">
+                        {{form.submit(class="btn btn-primary", style="background-color: white;
+                        border: white; color:black;") }}</div>
             </form>
-
         </div>
-    </div>
+        <br>
 
+    </div>
+    <br>
     {% endblock %}
 </body>
 

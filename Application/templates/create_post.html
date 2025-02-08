@@ -2,9 +2,9 @@
 
 <body>
     {% block content %}
-
+    <br>
     <div class="container">
-        <form method="POST" action="">
+        <form method="POST" action="" style="background-color: rgb(179, 179, 226); padding: 12px;">
             {{ form.hidden_tag() }}
 
             <div class="mb-3">
@@ -14,13 +14,15 @@
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">{{ form.content.label() }}</label>
-                {{ form.content(class="form-control", id="exampleFormControlTextarea1") }}
+                {{ form.content(class="form-control", id="exampleFormControlTextarea1", style="height: 300px") }}
             </div>
 
-            <div>{{form.submit(class="btn btn-primary")}}</div>
+            <div style="display: flex; justify-content: center;">{{form.submit(class="btn btn-primary",
+                style="background-color: white; border: azure; color:black;")}}</div>
         </form>
     </div>
-
+    <br>
+    <br>
     {% endblock %}
 </body>
 

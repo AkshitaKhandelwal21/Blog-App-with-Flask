@@ -52,7 +52,7 @@ def updateBlog(post_id):
     if request.method=='GET':
         form.title.data = post.title
         form.content.data = post.content
-        
+            
     else:
         if form.validate():
             post.title = form.title.data

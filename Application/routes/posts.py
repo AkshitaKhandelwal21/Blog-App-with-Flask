@@ -75,3 +75,13 @@ def deleteBlog(post_id):
     db.session.commit()
     print("Deleted successfully")
     return redirect(url_for('home'))
+
+
+@app.route('/blogs/<key>')
+def userPost(key):
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.filter_by(
+        Post.title.like(key),
+        Post.content.like(key)
+    ).paginate(page=page, per_page=10)
+    return render_template('search.html', posts=posts)
